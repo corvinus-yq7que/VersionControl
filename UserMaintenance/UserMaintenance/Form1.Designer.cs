@@ -33,6 +33,7 @@
             lblFullName = new Label();
             btnAdd = new Button();
             btnSave = new Button();
+            btnDelete = new Button();
             SuspendLayout();
             // 
             // listUsers
@@ -80,11 +81,22 @@
             btnSave.UseVisualStyleBackColor = true;
             btnSave.Click += btnSave_Click;
             // 
+            // btnDelete
+            // 
+            btnDelete.Location = new Point(396, 358);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(351, 52);
+            btnDelete.TabIndex = 7;
+            btnDelete.Text = "button1";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += button1_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnDelete);
             Controls.Add(btnSave);
             Controls.Add(btnAdd);
             Controls.Add(lblFullName);
@@ -103,5 +115,6 @@
         private Label lblFullName;
         private Button btnAdd;
         private Button btnSave;
+        private Button btnDelete;
     }
 }

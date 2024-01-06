@@ -15,8 +15,14 @@ namespace UserMaintenance
 
             btnAdd.Text = Resource1.Add;
             btnSave.Text = Resource1.Save;
+            btnDelete.Text = Resource1.Delete;
 
-            listUsers.DataSource = users;
+            listUsers.DataSource = null;
+            listUsers.Items.Clear();
+            foreach (var user in users)
+            {
+                listUsers.Items.Add(users);
+            }
             listUsers.ValueMember = "ID";
             listUsers.DisplayMember = "Fullname";
         }
@@ -48,6 +54,18 @@ namespace UserMaintenance
                 }
             }
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (listUsers.SelectedItem != null)
+            {
+                listUsers.Items.Remove(listUsers.SelectedItems);
+            }
+            else
+            {
+                MessageBox.Show("Nincs kijelölt elem a törléshez.");
+            }
         }
     }
 }
