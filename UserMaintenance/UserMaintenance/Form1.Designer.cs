@@ -28,36 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            listBox1 = new ListBox();
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            listUsers = new ListBox();
+            txtLastName = new TextBox();
+            txtFirstName = new TextBox();
             lblLastName = new Label();
             lblFirstName = new Label();
             btnAdd = new Button();
             SuspendLayout();
             // 
-            // listBox1
+            // listUsers
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 25;
-            listBox1.Location = new Point(50, 50);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(305, 329);
-            listBox1.TabIndex = 0;
+            listUsers.FormattingEnabled = true;
+            listUsers.ItemHeight = 25;
+            listUsers.Location = new Point(50, 50);
+            listUsers.Name = "listUsers";
+            listUsers.Size = new Size(305, 329);
+            listUsers.TabIndex = 0;
             // 
-            // textBox1
+            // txtLastName
             // 
-            textBox1.Location = new Point(459, 68);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(288, 31);
-            textBox1.TabIndex = 1;
+            txtLastName.Location = new Point(459, 68);
+            txtLastName.Name = "txtLastName";
+            txtLastName.Size = new Size(288, 31);
+            txtLastName.TabIndex = 1;
             // 
-            // textBox2
+            // txtFirstName
             // 
-            textBox2.Location = new Point(459, 123);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(288, 31);
-            textBox2.TabIndex = 2;
+            txtFirstName.Location = new Point(459, 123);
+            txtFirstName.Name = "txtFirstName";
+            txtFirstName.Size = new Size(288, 31);
+            txtFirstName.TabIndex = 2;
             // 
             // lblLastName
             // 
@@ -85,6 +85,7 @@
             btnAdd.TabIndex = 5;
             btnAdd.Text = "button1";
             btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // Form1
             // 
@@ -94,9 +95,9 @@
             Controls.Add(btnAdd);
             Controls.Add(lblFirstName);
             Controls.Add(lblLastName);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
-            Controls.Add(listBox1);
+            Controls.Add(txtFirstName);
+            Controls.Add(txtLastName);
+            Controls.Add(listUsers);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -105,9 +106,9 @@
 
         #endregion
 
-        private ListBox listBox1;
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private ListBox listUsers;
+        private TextBox txtLastName;
+        private TextBox txtFirstName;
         private Label lblLastName;
         private Label lblFirstName;
         private Button btnAdd;
