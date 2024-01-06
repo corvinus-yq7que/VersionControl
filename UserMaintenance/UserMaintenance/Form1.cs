@@ -1,4 +1,5 @@
 using System.ComponentModel;
+using System.Windows.Forms;
 using UserMaintenance.Entities;
 
 namespace UserMaintenance
@@ -13,6 +14,7 @@ namespace UserMaintenance
             lblFullName.Text = Resource1.FullName;
 
             btnAdd.Text = Resource1.Add;
+            btnSave.Text = Resource1.Save;
 
             listUsers.DataSource = users;
             listUsers.ValueMember = "ID";
@@ -26,6 +28,26 @@ namespace UserMaintenance
                 FullName = txtFullName.Text
             };
             users.Add(u);
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog sfd = new SaveFileDialog())
+            {
+
+                if (sfd.ShowDialog() == DialogResult.OK)
+                {
+                    using (StreamWriter sw = new StreamWriter(sfd.FileName))
+                    {
+                        foreach (var user in users)
+                        {
+                            sw.WriteLine($"ID: {user.ID}, FullName: {user.FullName}");
+                        }
+                    }
+                    MessageBox.Show("Sikeres mentés!", "Információ", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
         }
     }
 }

@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             listUsers = new ListBox();
-            this.txtFullName = new TextBox();
+            txtFullName = new TextBox();
             lblFullName = new Label();
             btnAdd = new Button();
+            btnSave = new Button();
             SuspendLayout();
             // 
             // listUsers
@@ -45,19 +46,19 @@
             // 
             // txtFullName
             // 
-            this.txtFullName.Location = new Point(459, 107);
-            this.txtFullName.Name = "txtFullName";
-            this.txtFullName.Size = new Size(288, 31);
-            this.txtFullName.TabIndex = 1;
+            txtFullName.Location = new Point(459, 107);
+            txtFullName.Name = "txtFullName";
+            txtFullName.Size = new Size(288, 31);
+            txtFullName.TabIndex = 1;
             // 
             // lblFullName
             // 
             lblFullName.AutoSize = true;
-            lblFullName.Location = new Point(394, 107);
+            lblFullName.Location = new Point(363, 110);
             lblFullName.Name = "lblFullName";
-            lblFullName.Size = new Size(59, 25);
+            lblFullName.Size = new Size(90, 25);
             lblFullName.TabIndex = 3;
-            lblFullName.Text = "label1";
+            lblFullName.Text = "Teljes név:";
             // 
             // btnAdd
             // 
@@ -65,18 +66,29 @@
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(353, 53);
             btnAdd.TabIndex = 5;
-            btnAdd.Text = "button1";
+            btnAdd.Text = "Hozzáadás";
             btnAdd.UseVisualStyleBackColor = true;
             btnAdd.Click += btnAdd_Click;
+            // 
+            // btnSave
+            // 
+            btnSave.Location = new Point(394, 275);
+            btnSave.Name = "btnSave";
+            btnSave.Size = new Size(353, 55);
+            btnSave.TabIndex = 6;
+            btnSave.Text = "Fájlba írás";
+            btnSave.UseVisualStyleBackColor = true;
+            btnSave.Click += btnSave_Click;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(btnSave);
             Controls.Add(btnAdd);
             Controls.Add(lblFullName);
-            Controls.Add(this.txtFullName);
+            Controls.Add(txtFullName);
             Controls.Add(listUsers);
             Name = "Form1";
             Text = "Form1";
@@ -90,5 +102,6 @@
         private TextBox txtFullName;
         private Label lblFullName;
         private Button btnAdd;
+        private Button btnSave;
     }
 }
