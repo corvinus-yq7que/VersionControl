@@ -13,7 +13,7 @@ namespace UserMaintenance
             lblLastName.Text = Resource1.LastName;
             lblFirstName.Text = Resource1.FirstName;
 
-            btnAdd.Text = Resource1.Add;
+            btnAdd.Text = Resource1.FirstName;
 
             listUsers.DataSource = users;
             listUsers.ValueMember = "ID";
