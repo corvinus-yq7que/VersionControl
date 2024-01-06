@@ -29,10 +29,8 @@
         private void InitializeComponent()
         {
             listUsers = new ListBox();
-            txtLastName = new TextBox();
-            txtFirstName = new TextBox();
-            lblLastName = new Label();
-            lblFirstName = new Label();
+            this.txtFullName = new TextBox();
+            lblFullName = new Label();
             btnAdd = new Button();
             SuspendLayout();
             // 
@@ -45,37 +43,21 @@
             listUsers.Size = new Size(305, 329);
             listUsers.TabIndex = 0;
             // 
-            // txtLastName
+            // txtFullName
             // 
-            txtLastName.Location = new Point(459, 68);
-            txtLastName.Name = "txtLastName";
-            txtLastName.Size = new Size(288, 31);
-            txtLastName.TabIndex = 1;
+            this.txtFullName.Location = new Point(459, 107);
+            this.txtFullName.Name = "txtFullName";
+            this.txtFullName.Size = new Size(288, 31);
+            this.txtFullName.TabIndex = 1;
             // 
-            // txtFirstName
+            // lblFullName
             // 
-            txtFirstName.Location = new Point(459, 123);
-            txtFirstName.Name = "txtFirstName";
-            txtFirstName.Size = new Size(288, 31);
-            txtFirstName.TabIndex = 2;
-            // 
-            // lblLastName
-            // 
-            lblLastName.AutoSize = true;
-            lblLastName.Location = new Point(394, 68);
-            lblLastName.Name = "lblLastName";
-            lblLastName.Size = new Size(59, 25);
-            lblLastName.TabIndex = 3;
-            lblLastName.Text = "label1";
-            // 
-            // lblFirstName
-            // 
-            lblFirstName.AutoSize = true;
-            lblFirstName.Location = new Point(394, 126);
-            lblFirstName.Name = "lblFirstName";
-            lblFirstName.Size = new Size(59, 25);
-            lblFirstName.TabIndex = 4;
-            lblFirstName.Text = "label2";
+            lblFullName.AutoSize = true;
+            lblFullName.Location = new Point(394, 107);
+            lblFullName.Name = "lblFullName";
+            lblFullName.Size = new Size(59, 25);
+            lblFullName.TabIndex = 3;
+            lblFullName.Text = "label1";
             // 
             // btnAdd
             // 
@@ -93,10 +75,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
             Controls.Add(btnAdd);
-            Controls.Add(lblFirstName);
-            Controls.Add(lblLastName);
-            Controls.Add(txtFirstName);
-            Controls.Add(txtLastName);
+            Controls.Add(lblFullName);
+            Controls.Add(this.txtFullName);
             Controls.Add(listUsers);
             Name = "Form1";
             Text = "Form1";
@@ -107,10 +87,8 @@
         #endregion
 
         private ListBox listUsers;
-        private TextBox txtLastName;
-        private TextBox txtFirstName;
-        private Label lblLastName;
-        private Label lblFirstName;
+        private TextBox txtFullName;
+        private Label lblFullName;
         private Button btnAdd;
     }
 }
