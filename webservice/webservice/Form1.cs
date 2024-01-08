@@ -35,8 +35,11 @@ namespace webservice
 
             var response = mnbService.GetExchangeRates(request);
             var result = response.GetExchangeRatesResult;
+            XMLProcess(result);
+        }
 
-
+        private void XMLProcess(string result)
+        {
             var xml = new XmlDocument();
             xml.LoadXml(result);
 
