@@ -18,12 +18,45 @@ namespace webservice
     {
         
         BindingList<RateData> Rates = new BindingList<RateData>();
+        BindingList<string> Currencies = new BindingList<string>();
         
         public Form1()
         {
             InitializeComponent();
 
+            GetCurrencies();
+
             RefreshData();
+        }
+
+        private void GetCurrencies()
+        {
+            var mnbService = new MNBArfolyamServiceSoapClient();
+
+            var request = new GetCurrenciesRequestBody();
+
+            var response = mnbService.GetCurrencies(request);
+            var result = response.GetCurrenciesResult;
+
+            XMLProcessCurrencies(result);
+        }
+
+        private void XMLProcessCurrencies(string result)
+        {
+            var xml = new XmlDocument();
+            xml.LoadXml(result);
+
+            foreach (XmlElement dateElement in xml.DocumentElement.ChildNodes)
+            {
+                var currencyElement = (XmlElement)dateElement.ChildNodes[0];
+                if (currencyElement == null)
+                    continue;
+
+                var currencyName = currencyElement.GetAttribute("curr"); 
+                
+                if (!Currencies.Contains(currencyName))
+                    Currencies.Add(currencyName);
+            }
         }
 
         private void RefreshData()
@@ -32,6 +65,7 @@ namespace webservice
             
             dgwRates.DataSource = Rates;
             chartRateData.DataSource = Rates;
+            comboBox1.DataSource = Currencies;
 
             var mnbService = new MNBArfolyamServiceSoapClient();
 
@@ -79,6 +113,8 @@ namespace webservice
                 rate.Date = DateTime.Parse(element.GetAttribute("date"));
 
                 var childElement = (XmlElement)element.ChildNodes[0];
+                if (childElement == null)
+                    continue;
                 rate.Currency = childElement.GetAttribute("curr");
 
                 var unit = decimal.Parse(childElement.GetAttribute("unit"));
