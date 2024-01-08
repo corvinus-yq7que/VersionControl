@@ -21,6 +21,7 @@ namespace excel
         Excel.Application xlApp;
         Excel.Workbook xlWB;
         Excel.Worksheet xlSheet;
+
         public Form1()
         {
             InitializeComponent();
@@ -73,7 +74,10 @@ namespace excel
                 xlSheet.Cells[1, i + 1] = headers[i];
             }
             object[,] values = new object[Flats.Count, headers.Length];
+
+
             int counter = 0;
+
             foreach (Flat f in Flats)
             {
                 values[counter, 0] = f.Code;
@@ -87,6 +91,8 @@ namespace excel
                 values[counter, 8] = "";
                 counter++;
             }
+
+
             private string GetCell(int x, int y)
             {
                 string ExcelCoordinate = "";
@@ -103,9 +109,21 @@ namespace excel
 
                 return ExcelCoordinate;
             }
+
+
             xlSheet.get_Range(
                  GetCell(2, 1),
                  GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
+
+
+            Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+            headerRange.Font.Bold = true;
+            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.EntireColumn.AutoFit();
+            headerRange.RowHeight = 40;
+            headerRange.Interior.Color = Color.LightBlue;
+            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
         }
 
         
