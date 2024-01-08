@@ -34,6 +34,8 @@ namespace excel
                 xlWB = xlApp.Workbooks.Add(Missing.Value);
                 xlSheet = xlWB.ActiveSheet;
 
+                CreateTable();
+
                 xlApp.Visible = true;
                 xlApp.UserControl = true;
             }
@@ -47,6 +49,22 @@ namespace excel
                 xlWB = null;
                 xlApp = null;
             }
+        }
+
+        private static void CreateTable()
+        {
+            string[] headers = new string[]
+            {
+                    "Kód",
+                    "Eladó",
+                    "Oldal",
+                    "Kerület",
+                    "Lift",
+                    "Szobák száma",
+                    "Alapterület(m2)",
+                    "Ár (mFt)",
+                    "Négyzetméter ár (Ft/m2)"
+            };
         }
 
         private void LoadData()
