@@ -12,6 +12,10 @@ namespace Gift.Entities
 {
     internal class Ball : Toy
     {
+        protected override void DrawImage(Graphics g)
+        {
+            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
+        }
         public Ball()
         {
             AutoSize = false;
@@ -23,12 +27,6 @@ namespace Gift.Entities
         {
             DrawImage(e.Graphics);
         }
-
-        protected override void DrawImage(Graphics g)
-        {
-            g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
-        }
-
         public void MoveBall()
         {
             Left += 1;
