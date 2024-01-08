@@ -10,9 +10,9 @@ using Label = System.Windows.Forms.Label;
 
 namespace Gift.Entities
 {
-    internal class Toy : Label
+    internal class Ball : Toy
     {
-        public Toy()
+        public Ball()
         {
             AutoSize = false;
             Width = 50;
@@ -24,7 +24,7 @@ namespace Gift.Entities
             DrawImage(e.Graphics);
         }
 
-        protected void DrawImage(Graphics g)
+        protected override void DrawImage(Graphics g)
         {
             g.FillEllipse(new SolidBrush(Color.Blue), 0, 0, Width, Height);
         }
