@@ -19,6 +19,7 @@ namespace excel
         {
             InitializeComponent();
             LoadData();
+            CreateExcel();
         }
         private void LoadData()
         {
