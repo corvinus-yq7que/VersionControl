@@ -72,7 +72,10 @@ namespace Gift
 
         private void btnBall_Click(object sender, EventArgs e)
         {
-            Factory = new BallFactory();
+            Factory = new BallFactory()
+            {
+                BallColor = btnColor.BackColor
+            };
         }
 
         private void btnColor_Click(object sender, EventArgs e)
