@@ -19,7 +19,6 @@ namespace Mikroszimuláció
         List<Person> Population = new List<Person>();
         List<BirthProbability> BirthProbabilities = new List<BirthProbability>();
         List<DeathProbability> DeathProbabilities = new List<DeathProbability>();
-        
 
         Random rng = new Random(1234);
         public Form1()
@@ -135,6 +134,50 @@ namespace Mikroszimuláció
                 }
             }
             return deathProbabilities;
+        }
+
+        private object btnStart_Click(object sender, EventArgs e)
+        {
+            Simulation(startYear, endYear);
+            DisplayResults(year, maleCount, femaleCount);
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog ofd = new OpenFileDialog())
+            {
+                if (ofd.ShowDialog() == DialogResult.OK)
+                {
+                    textBox1.Text = ofd.FileName;
+                }
+            }
+        }
+
+        private void Simulation(int startYear, int endYear)
+        {
+            List<int> malePopulation = new List<int>();
+            List<int> femalePopulation = new List<int>();
+
+            richTextBox1.Clear();
+            malePopulation.Clear();
+            femalePopulation.Clear();
+
+            startYear = 2005;
+            endYear = (int)numericUpDown1.Value;
+            for (int year = startYear; year <= endYear; year++)
+            {
+                int maleCount = 1000 + year * 100;
+                int femaleCount = 900 + year * 100;
+
+                malePopulation.Add(maleCount);
+                femalePopulation.Add(femaleCount);
+
+                DisplayResults(year, maleCount, femaleCount);
+            }
+        }
+        private void DisplayResults(int year, int maleCount, int femaleCount)
+        {
+            richTextBox1.AppendText($"{year}\tMale: {maleCount}\tFemale: {femaleCount}\n");
         }
     }
 }
