@@ -25,5 +25,6 @@ namespace VAR
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<Tick> Ticks { get; set; }
     }
 }
