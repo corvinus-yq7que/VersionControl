@@ -22,17 +22,23 @@ namespace Gift
         public IToyFactory Factory
         {
             get { return _factory; }
-            set 
-            { 
+            set
+            {
                 _factory = value;
-                if (_nextToy != null)
-                    Controls.Remove(_nextToy);
-                _nextToy = Factory.CreateNew();
-                _nextToy.Top = lblNext.Top + lblNext.Height + 20;
-                _nextToy.Left = lblNext.Left;
-                Controls.Add(_nextToy);
+                DisplayNext();
             }
         }
+
+        private void DisplayNext()
+        {
+            if (_nextToy != null)
+                Controls.Remove(_nextToy);
+            _nextToy = Factory.CreateNew();
+            _nextToy.Top = lblNext.Top + lblNext.Height + 20;
+            _nextToy.Left = lblNext.Left;
+            Controls.Add(_nextToy);
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -74,11 +80,30 @@ namespace Gift
         {
             Factory = new BallFactory()
             {
-                BallColor = btnColor.BackColor
+                BallColor = btnBallColor.BackColor
             };
         }
 
-        private void btnColor_Click(object sender, EventArgs e)
+        private void btnBallColor_Click(object sender, EventArgs e)
+        {
+            var button = (Button)sender;
+            var colorPicker = new ColorDialog();
+
+            colorPicker.Color = button.BackColor;
+            if (colorPicker.ShowDialog() != DialogResult.OK)
+                return;
+            button.BackColor = colorPicker.Color;
+        }
+
+        private void btnPresent_Click(object sender, EventArgs e)
+        {
+            Factory = new PresentFactory()
+            {
+                PresentColor = btnPresentColor1.BackColor
+            };
+        }
+
+        private void btnPresentColor1_Click(object sender, EventArgs e)
         {
             var button = (Button)sender;
             var colorPicker = new ColorDialog();
