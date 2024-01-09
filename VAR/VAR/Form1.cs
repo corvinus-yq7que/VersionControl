@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using VAR.Entities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.TrackBar;
 
 namespace VAR
@@ -15,11 +16,23 @@ namespace VAR
     {
         PortfolioEntities context = new PortfolioEntities();
         List<Tick> Ticks;
+        List<PortfolioItem> Portfolio = new List<PortfolioItem>();
         public Form1()
         {
             InitializeComponent();
             Ticks = context.Ticks.ToList();
             dgw.DataSource = Ticks;
+
+            CreatePortfolio();
+        }
+
+        private void CreatePortfolio()
+        {
+            Portfolio.Add(new PortfolioItem() { Index = "OTP", Volume = 10 });
+            Portfolio.Add(new PortfolioItem() { Index = "ZWACK", Volume = 10 });
+            Portfolio.Add(new PortfolioItem() { Index = "ELMU", Volume = 10 });
+
+            dgw2.DataSource = Portfolio;
         }
     }
 }
