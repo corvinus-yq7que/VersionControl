@@ -16,7 +16,7 @@ namespace excel
 {
     public partial class Form1 : Form
     {
-        RealEstateEntities context = new RealEstateEntities();
+        RealEstateEntities1 context = new RealEstateEntities1();
         List<Flat> Flats;
         Excel.Application xlApp;
         Excel.Workbook xlWB;
@@ -25,8 +25,8 @@ namespace excel
         public Form1()
         {
             InitializeComponent();
-            LoadData();
-            CreateExcel();
+            //LoadData();
+            //CreateExcel();
         }
 
         private void CreateExcel()

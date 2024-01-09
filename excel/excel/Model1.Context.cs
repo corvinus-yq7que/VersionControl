@@ -13,10 +13,10 @@ namespace excel
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class RealEstateEntities : DbContext
+    public partial class RealEstateEntities1 : DbContext
     {
-        public RealEstateEntities()
-            : base("name=RealEstateEntities")
+        public RealEstateEntities1()
+            : base("name=RealEstateEntities1")
         {
         }
     
@@ -25,6 +25,6 @@ namespace excel
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Flat> Flat { get; set; }
+        public virtual DbSet<Flat> Flats { get; set; }
     }
 }
